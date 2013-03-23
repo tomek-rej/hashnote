@@ -1,0 +1,19 @@
+<h3>Add hashnote</h3>
+<div>Type in your note and push the button</div>
+<form action="{% url 'hashnote_ui.views.add_note' %}" method="post">
+{% csrf_token %}
+<input type="text" name="content" id="content" />
+<input type="submit" value="Add note"/>
+</form>
+
+<div>or choose one from the drop down list</div>
+<form action="{% url 'hashnote_ui.views.add_note' %}" method="post">
+{%csrf_token %}
+<select name="content">
+<option value="go to sleep">go to sleep</option>
+<option value="wake up">wake up</option>
+<option value="start/resume work">start/resume work</option>
+<option value="pause/stop work">pause/stop work</option>
+</select>
+<input type="submit" value="Add note"/>
+</form>

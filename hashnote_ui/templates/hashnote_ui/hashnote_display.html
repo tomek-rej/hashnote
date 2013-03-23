@@ -1,0 +1,14 @@
+{% if recent_hashnotes %}
+    <h3>Most recent hash notes</h3>
+    {% for hashnote in recent_hashnotes %}
+        <div style="font-size:12pt; font-weight: bold">
+        {{ hashnote.content }} <br/>
+        </div>
+        <div style="font-size:10pt">
+        Posted at: {{ hashnote.created_at }} <br/>
+        </div>
+        <br/>
+    {% endfor %}
+{% else %}
+    <p>No hashtags found.</p>
+{% endif %}

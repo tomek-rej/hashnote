@@ -1,0 +1,20 @@
+div.topright {
+    position: absolute;
+    right: 100px;
+    top: 0px;
+}
+
+div.middleright {
+     position: absolute;
+     right: 100px;
+     top: 300px;
+}
+
+body {
+    background-color: #ADD8E6;
+}
+
+div.hashnotes {
+    background-color: #ADB6C6;
+    width: 20em;
+}

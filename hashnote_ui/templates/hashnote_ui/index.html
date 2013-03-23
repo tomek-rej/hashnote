@@ -1,0 +1,21 @@
+<html>
+<head>
+<link rel="stylesheet" href="{{ STATIC_URL }}main.css" type="text/css" />
+</head>
+
+<body>
+<div class="topright">
+{% include "hashnote_ui/add_note_form.html" %}</td></tr>
+</div>
+<div class="middleright">
+{% include "hashnote_ui/filter_form.html" %}</td></tr>
+</div>
+
+<div style="color:red; font-weight: bold">
+{{ warning_message }}
+</div>
+<div class="hashnotes">
+{% include "hashnote_ui/hashnote_display.html" %}
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+OVERVIEW
+
+HashNote is a simple web application that allows you to add notes - either
+your own custom ones or prepopulated from a list.
+The most recent notes are displayed and are ordered by date, the most
+recent note appearing at the top. 
+You can also filter the notes so that only notes that contain a specific hash
+tag are displayed. The filter may be reset either by pressing the reset button
+or leaving the filter field blank.
+
+
+INSTALLATION
+
+The program is written in Django and uses Sqlite3 by default. If those
+perequesites are met simply run the following commands:
+    make setup
+    make run (or manage.py runserver)
+This will start the web app in development mode.
+Then head to http://localhost:8000/hashnote_ui/
+
+To run the tests:
+    make test (or manage.py test)
+
+If the installation fails it may be because pip isn't installed.
+If you don't have Sqlite3 installed you can use an alternate database such
+as MySQL or PostgreSQL but in that case the schema and databases have to be
+created prior to running the application. So it may be simpler to install
+Sqlite.
+
+
+NOTES
+
+Below are some assumptions I made about how the web app should react in
+certain situations.
+
+Firstly the filter text persists across sessions. 
+What that means is if you filter by #foo it will store #foo in the database. 
+After you perform another action such as adding a new note the results will
+still be filtered by #foo. If you enter a different text into the filter
+field or reset the filter the value stored in the database will change and
+so will the notes you see displayed on the page.
+
+Filtering is done by matching all notes that contain a given hashtag after
+removing all non alphanumeric characters from the note. The idea is given
+a note such as #dog,#cat a search for #dog should display the note. The app
+interprets the string #dog,#cat as a list [#dog #cat] and checks if either
+element matches the search query.
+One thing to mention is only complete matches are supported. If I search for #do it will not display the note #dog
+
+Trying to add a blank hashnote will trigger a warning message and not add the note to
+the database.

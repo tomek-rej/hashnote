@@ -1,0 +1,13 @@
+<h3>Filter by hashtag</h3>
+<div>Filter hashnotes by hashtag</div>
+<form action="{% url 'hashnote_ui.views.index' %}" method="post">
+{% csrf_token %}
+[#]<input type="text" name="filter" id="content" />
+<input type="submit" value="Filter"/>
+</form>
+
+<form action="{% url 'hashnote_ui.views.index' %}" method="post">
+{% csrf_token %}
+<input type="hidden" name="filter" id="content" value="" />
+<input type="submit" value="Reset filter"/>
+</form>
