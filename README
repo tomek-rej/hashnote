@@ -49,3 +49,6 @@ One thing to mention is only complete matches are supported. If I search for #do
 
 Trying to add a blank hashnote will trigger a warning message and not add the note to
 the database.
+
+When entering a search term into the filter text field if the search term is not
+preceeded by a # character it will get added internally.
